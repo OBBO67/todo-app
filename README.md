@@ -10,6 +10,6 @@ The following table shows the api routes for the todo-api:
 | ------ | :----------------: | :---------------: |
 | GET    |     /api/todos     |  List all todos   |
 | POST   |     /api/todos     | Create a new todo |
-| GET    | /api/todos/:todoid |  Retrieve a todo  |
-| PUT    | /api/todos/:todoid |   Update a todo   |
-| DELETE | /api/todos/:todoid |   Delete a todo   |
+| GET    | /api/todos/:todoId |  Retrieve a todo  |
+| PUT    | /api/todos/:todoId |   Update a todo   |
+| DELETE | /api/todos/:todoId |   Delete a todo   |
