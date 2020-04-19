@@ -1,4 +1,7 @@
-<div class="card" style="width: 50rem;">
+<div
+  class="card border-info text-center todo-card card-border"
+  style="width: 50rem;"
+>
   <div class="card-body">
     <h5 class="card-title">
       {{ todo.name }}
@@ -9,10 +12,18 @@
     <p class="card-text">
       {{ todo.completed }}
     </p>
-    <button type="button" class="btn btn-success" (click)="completeTodo()">
+    <button
+      type="button"
+      class="btn btn-success todo-card-button"
+      (click)="completeTodo()"
+    >
       Complete
     </button>
-    <button type="button" class="btn btn-danger" (click)="deleteTodo()">
+    <button
+      type="button"
+      class="btn btn-danger todo-card-button"
+      (click)="deleteTodo()"
+    >
       Delete
     </button>
   </div>

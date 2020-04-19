@@ -1,7 +1,21 @@
-<div class="container">
+<div class="container w-50">
   <app-todo
     *ngFor="let todo of todos"
     [todo]="todo"
     (deleteRequest)="deleteEvent($event)"
   ></app-todo>
+  <form [formGroup]="todoForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="todoName">New Todo</label>
+      <input
+        type="text"
+        formControlName="todoName"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && todoNameGroup.errors }"
+      />
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">Add Todo</button>
+    </div>
+  </form>
 </div>

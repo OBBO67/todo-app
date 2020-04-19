@@ -57,4 +57,8 @@ export class TodolistComponent implements OnInit {
 
     // then send delete request to server
   }
+
+  onSubmit(): void {
+    // send request to server
+  }
 }

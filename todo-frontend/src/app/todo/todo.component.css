@@ -1,0 +1,13 @@
+.todo-card {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.todo-card-button {
+  margin-left: 15px;
+  margin-right: 15px;
+}
+
+.card-border {
+  border-width: 5px;
+}
