@@ -1,0 +1,7 @@
+<div class="container">
+  <app-todo
+    *ngFor="let todo of todos"
+    [todo]="todo"
+    (deleteRequest)="deleteEvent($event)"
+  ></app-todo>
+</div>
