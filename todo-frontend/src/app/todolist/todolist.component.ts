@@ -9,8 +9,8 @@ import { FormGroup, FormBuilder } from "@angular/forms";
   styleUrls: ["./todolist.component.css"],
 })
 export class TodolistComponent implements OnInit {
-  todo1 = new Todo(1, "Test 1", Date(), false); // fake data
-  todo2 = new Todo(2, "Test 2", Date(), false); // fake data
+  todo1 = new Todo(1, "Test 1", Date(), false, null); // fake data
+  todo2 = new Todo(2, "Test 2", Date(), false, null); // fake data
   todos: Todo[];
   todoForm: FormGroup;
   submitted = false;
