@@ -16,6 +16,13 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  // A user can have many todos (OneToMany)
+  todos: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Todo",
+    },
+  ],
 });
 
 // right before we save the user document - hash the password
@@ -26,13 +33,15 @@ userSchema.pre("save", async function (next) {
     }
     let hashedPassword = await bcrypt.hash(this.password, 10);
     this.password = hashedPassword;
+    return next();
   } catch (err) {
     return next(err);
   }
 });
 
-userSchema.method.comparePassword = async function (candidatePassword, next) {
+userSchema.methods.comparePassword = async function (candidatePassword, next) {
   try {
+    console.log(candidatePassword, this.password);
     let isMatch = await bcrypt.compare(candidatePassword, this.password);
     return isMatch;
   } catch (err) {

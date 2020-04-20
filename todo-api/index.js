@@ -1,18 +1,21 @@
+require("dotenv").config(); // load .env contents into process.env
+
 const express = require("express");
 const app = express();
 const cors = require("cors");
 
-require("dotenv").config(); // load .env contents into process.env
 const PORT = process.env.PORT || 3000;
 const bodyParser = require("body-parser");
 const todoRoutes = require("./routes/todos");
 const errorHandler = require("./handlers/error");
+const authRoutes = require("./routes/auth");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
 app.use("/api/todos", todoRoutes);
+app.use("/api/auth", authRoutes);
 
 app.use(function (req, res, next) {
   let error = new Error("Not Found");
