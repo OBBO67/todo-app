@@ -4,7 +4,7 @@ const User = require("./user");
 const todoSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: "Name cannot be blank",
+    required: "Todo name cannot be blank",
     maxlength: 33,
   },
   completed: {

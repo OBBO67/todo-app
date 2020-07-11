@@ -1,14 +1,15 @@
 const express = require("express");
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 const db = require("../models");
-const helpers = require("../helpers/todos");
+const { createTodo } = require("../handlers/todos");
 
-router.route("/").get(helpers.getTodos).post(helpers.createTodo);
+// prefix - /api/users/:id/todos
+router.route("/").post(createTodo);
 
-router
-  .route("/:todoId")
-  .get(helpers.getTodo)
-  .put(helpers.updateTodo)
-  .delete(helpers.deleteTodo);
+// router
+//   .route("/:todoId")
+//   .get(handlers.getTodo)
+//   .put(handlers.updateTodo)
+//   .delete(handlers.deleteTodo);
 
 module.exports = router;

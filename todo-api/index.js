@@ -9,12 +9,13 @@ const bodyParser = require("body-parser");
 const todoRoutes = require("./routes/todos");
 const errorHandler = require("./handlers/error");
 const authRoutes = require("./routes/auth");
+const { loginRequired, ensureCorrectUser } = require("./middleware/auth");
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.use("/api/todos", todoRoutes);
+app.use("/api/users/:id/todos", loginRequired, ensureCorrectUser, todoRoutes);
 app.use("/api/auth", authRoutes);
 
 app.use(function (req, res, next) {
